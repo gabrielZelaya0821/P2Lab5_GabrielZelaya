@@ -13,7 +13,20 @@ public class Personaje {
     private double agilidadFisica;
     private double agilidadMental;
     private double hp;
+    private int x = 0;
 
+    public Personaje(String nombre, double poder, String debilidad, String universo, double fuerza, double agilidadFisica, double agilidadMental, double hp,int x) {
+        this.nombre = nombre;
+        this.poder = poder;
+        this.debilidad = debilidad;
+        this.universo = universo;
+        this.fuerza = fuerza;
+        this.agilidadFisica = agilidadFisica;
+        this.agilidadMental = agilidadMental;
+        this.hp = hp;
+        this.x = x;
+    }
+    
     public Personaje(String nombre, double poder, String debilidad, String universo, double fuerza, double agilidadFisica, double agilidadMental, double hp) {
         this.nombre = nombre;
         this.poder = poder;
@@ -24,7 +37,7 @@ public class Personaje {
         this.agilidadMental = agilidadMental;
         this.hp = hp;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -91,8 +104,12 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return nombre+"\nPoder: "+poder+"\nFuerza: "+fuerza+"\nDebilidad: "+debilidad+"\nFisico: "+agilidadFisica
+        if(x == 0){
+            return nombre+"\n Poder: "+poder+"\nFuerza: "+fuerza+"\nDebilidad: "+debilidad+"\nFisico: "+agilidadFisica
                 +"\nMental: "+agilidadMental+"Puntos de vida:"+hp+"\nUniverso: "+universo;
+        }else{
+            return nombre;
+        }
     }
     
 }
