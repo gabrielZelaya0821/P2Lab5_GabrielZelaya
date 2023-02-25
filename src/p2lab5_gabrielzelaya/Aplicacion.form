@@ -235,7 +235,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Component id="btn_modificar" min="-2" pref="155" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="317" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -419,29 +419,38 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jScrollPane_tree" min="-2" pref="236" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Component id="jScrollPane_list" min="-2" pref="229" max="-2" attributes="0"/>
-                  <EmptySpace pref="196" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btn_salirListar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btn_borrar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_salirListar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane_tree" max="32767" attributes="0"/>
-                      <Component id="jScrollPane_list" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane_tree" max="32767" attributes="0"/>
+                              <Component id="jScrollPane_list" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_borrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Component id="btn_salirListar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="60" max="32767" attributes="0"/>
               </Group>
@@ -477,8 +486,8 @@
           <SubComponents>
             <Component class="javax.swing.JList" name="personajes_list">
               <Properties>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="0"/>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new DefaultListModel()" type="code"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -493,6 +502,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirListarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_borrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Borrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_borrarMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

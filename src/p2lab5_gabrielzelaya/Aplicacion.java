@@ -1,8 +1,6 @@
 package p2lab5_gabrielzelaya;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -58,6 +56,7 @@ public class Aplicacion extends javax.swing.JFrame {
         jScrollPane_list = new javax.swing.JScrollPane();
         personajes_list = new javax.swing.JList<>();
         btn_salirListar = new javax.swing.JButton();
+        btn_borrar = new javax.swing.JButton();
 
         jmi_modificar.setText("Modificar");
         jmi_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +223,7 @@ public class Aplicacion extends javax.swing.JFrame {
                             .addComponent(txt_universo))))
                 .addGap(1, 1, 1)
                 .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_agregarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_salir)
@@ -294,6 +293,7 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         jScrollPane_tree.setViewportView(personajes_tree);
 
+        personajes_list.setModel(new DefaultListModel());
         jScrollPane_list.setViewportView(personajes_list);
 
         btn_salirListar.setText("Salir");
@@ -303,29 +303,42 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btn_borrar.setText("Borrar");
+        btn_borrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_borrarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout bg_listarLayout = new javax.swing.GroupLayout(bg_listar);
         bg_listar.setLayout(bg_listarLayout);
         bg_listarLayout.setHorizontalGroup(
             bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bg_listarLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_listarLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane_tree, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93)
                 .addComponent(jScrollPane_list, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_listarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salirListar)
-                .addGap(54, 54, 54))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_borrar)
+                    .addComponent(btn_salirListar))
+                .addGap(51, 51, 51))
         );
         bg_listarLayout.setVerticalGroup(
             bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bg_listarLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane_tree)
-                    .addComponent(jScrollPane_list))
-                .addGap(1, 1, 1)
+                .addGroup(bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bg_listarLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(bg_listarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane_tree)
+                            .addComponent(jScrollPane_list))
+                        .addGap(1, 1, 1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bg_listarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_borrar)
+                        .addGap(31, 31, 31)))
                 .addComponent(btn_salirListar)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -545,6 +558,11 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmi_listarActionPerformed
 
+    private void btn_borrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_borrarMouseClicked
+        DefaultListModel m = (DefaultListModel) personajes_list.getModel();
+        m.clear();
+    }//GEN-LAST:event_btn_borrarMouseClicked
+
     private void eliminar(DefaultMutableTreeNode t) {
         DefaultTreeModel m = (DefaultTreeModel) personajes_tree.getModel();
         m.removeNodeFromParent(t);
@@ -564,6 +582,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JPanel bg_principal;
     private javax.swing.JToggleButton btn_agregar;
     private javax.swing.JButton btn_agregarPersonaje;
+    private javax.swing.JButton btn_borrar;
     private javax.swing.JToggleButton btn_listar;
     private javax.swing.JToggleButton btn_modificar;
     private javax.swing.JButton btn_salir;
